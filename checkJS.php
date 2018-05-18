@@ -8,10 +8,16 @@
   }
 ?>
 </head>
-<body>    
+<body>
 <?php
-  if(isset($_REQUEST['JS'])) echo 'JavaScript is Disabled';
-  else echo 'JavaScript is Enabled';
+  if(isset($_REQUEST['JS']))
+    // echo 'JavaScript is Disabled';
+    session_start();  // Start the session
+    $_SESSION['JS-state'] = "off";
+  else
+    // echo 'JavaScript is Enabled';
+    session_start();  // Start the session    
+    $_SESSION['JS-state'] = "on";
 ?>
 </body>
 </html>
